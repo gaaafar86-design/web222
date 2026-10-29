@@ -65,8 +65,8 @@ $('tb').onclick=async e=>{
 const c=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
 $('csv').onclick=()=>{
   const rows=filtered();if(!rows.length){alert('ما في بيانات للتصدير');return}
-  const h=['اسم الجمعية','المساحة','الطابق','الاتجاه','غرف نوم','حمام','مطبخ','اسم المالك','ملاحظات','السعر','رقم المحضر','نوع البناء','رقم هاتف المالك'];
-  const L=[h.map(c).join(',')].concat(rows.map(r=>[r.assoc,r.area,r.floor,(r.dirs||[]).join('، '),r.bed,r.bath,r.kit,r.owner,r.notes,r.price,r.rec,r.btype,r.phone].map(c).join(',')));
+  const h=['اسم الجمعية','المساحة','الطابق','الاتجاه','غرف نوم','حمام','صالة','مطبخ','اسم المالك','ملاحظات','السعر','رقم المحضر','نوع البناء','رقم هاتف المالك'];
+  const L=[h.map(c).join(',')].concat(rows.map(r=>[r.assoc,r.area,r.floor,(r.dirs||[]).join('، '),r.bed,r.bath,r.hall,r.kit,r.owner,r.notes,r.price,r.rec,r.btype,r.phone].map(c).join(',')));
   download('العقارات.csv','\ufeff'+L.join('\r\n'),'text/csv;charset=utf-8');
 };
 $('json').onclick=()=>download('data.json',JSON.stringify(all,null,2),'application/json');

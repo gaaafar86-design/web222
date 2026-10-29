@@ -1,11 +1,11 @@
-let editId=null,cnt={bed:0,bath:0,kit:0};
+let editId=null,cnt={bed:0,bath:0,hall:0,kit:0};
 function setCtr(){document.querySelectorAll('.ctr').forEach(c=>c.querySelector('.n').textContent=cnt[c.dataset.k])}
 document.querySelectorAll('.ctr button').forEach(b=>b.onclick=()=>{
   const k=b.closest('.ctr').dataset.k;cnt[k]=Math.max(0,cnt[k]+Number(b.dataset.d));setCtr();
 });
 function toast(t,bad){const e=$('toast');e.textContent=t;e.style.background=bad?'#b3261e':'';e.style.display='block';setTimeout(()=>e.style.display='none',bad?5000:2500)}
 function resetForm(){
-  $('f').reset();cnt={bed:0,bath:0,kit:0};setCtr();editId=null;
+  $('f').reset();cnt={bed:0,bath:0,hall:0,kit:0};setCtr();editId=null;
   $('ft').textContent='إضافة عقار جديد';$('save').textContent='حفظ العقار';$('cancel').hidden=true;
   history.replaceState(null,'','index.html');
 }
@@ -21,7 +21,7 @@ $('f').onsubmit=async e=>{
       id:editId||Date.now(),
       assoc:$('assoc').value.trim(),area:$('area').value,floor:$('floor').value.trim(),
       dirs:[...document.querySelectorAll('#dirs input:checked')].map(x=>x.value),
-      bed:cnt.bed,bath:cnt.bath,kit:cnt.kit,
+      bed:cnt.bed,bath:cnt.bath,hall:cnt.hall,kit:cnt.kit,
       owner:$('owner').value.trim(),phone:$('phone').value.trim(),price:$('price').value,
       rec:$('rec').value.trim(),btype:bt?bt.value:'',notes:$('notes').value
     },was);
@@ -41,6 +41,6 @@ $('mode').textContent=modeText();
   $('phone').value=r.phone;$('price').value=num(r.price)??'';$('rec').value=r.rec;$('notes').value=r.notes;
   document.querySelectorAll('input[name=btype]').forEach(x=>x.checked=x.value===r.btype);
   document.querySelectorAll('#dirs input').forEach(x=>x.checked=(r.dirs||[]).includes(x.value));
-  cnt={bed:r.bed||0,bath:r.bath||0,kit:r.kit||0};setCtr();
+  cnt={bed:r.bed||0,bath:r.bath||0,hall:r.hall||0,kit:r.kit||0};setCtr();
   $('ft').textContent='تعديل العقار';$('save').textContent='حفظ التعديل';$('cancel').hidden=false;
 })();

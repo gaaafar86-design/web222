@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const num=v=>{const n=parseFloat(String(v??'').replace(/[^\d.]/g,''));return isNaN(n)?null:n};
 const fmt=n=>n==null?'':Number(n).toLocaleString('en-US');
-function split(r){const p=[];if(r.bed)p.push(r.bed+' نوم');if(r.bath)p.push(r.bath+' حمام');if(r.kit)p.push(r.kit+' مطبخ');return p.join('، ')}
+function split(r){const p=[];if(r.bed)p.push(r.bed+' نوم');if(r.bath)p.push(r.bath+' حمام');if(r.hall)p.push(r.hall+' صالة');if(r.kit)p.push(r.kit+' مطبخ');return p.join('، ')}
 function rd(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return[]}}
 function wr(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){alert('تعذر الحفظ في المتصفح')}}
 const getLocal=()=>rd(KEY), setLocal=v=>wr(KEY,v);
