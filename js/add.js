@@ -1,7 +1,7 @@
 let editId=null,cnt={bed:0,bath:0,hall:0,kit:0};
-function setCtr(){document.querySelectorAll('.ctr').forEach(c=>c.querySelector('.n').textContent=cnt[c.dataset.k])}
+function setCtr(){document.querySelectorAll('.ctr').forEach(c=>c.querySelector('.n').textContent=cnt[c.dataset.k]||0)}
 document.querySelectorAll('.ctr button').forEach(b=>b.onclick=()=>{
-  const k=b.closest('.ctr').dataset.k;cnt[k]=Math.max(0,cnt[k]+Number(b.dataset.d));setCtr();
+  const k=b.closest('.ctr').dataset.k;cnt[k]=Math.max(0,(cnt[k]||0)+Number(b.dataset.d));setCtr();
 });
 function toast(t,bad){const e=$('toast');e.textContent=t;e.style.background=bad?'#b3261e':'';e.style.display='block';setTimeout(()=>e.style.display='none',bad?5000:2500)}
 function resetForm(){
