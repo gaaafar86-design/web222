@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إضافة عقار</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+  <h1>سجل العقارات</h1>
+  <nav><a href="index.html" class="on">إضافة</a><a href="view.html">عرض</a><a href="settings.html">إعدادات</a></nav>
+</div>
+<p class="stats" id="mode"></p>
+
+<form id="f" class="card" autocomplete="off">
+  <h2 id="ft">إضافة عقار جديد</h2>
+  <div class="grid">
+    <div><label class="t" for="assoc">اسم الجمعية</label><input type="text" id="assoc"></div>
+    <div><label class="t" for="area">المساحة (م²)</label><input type="number" id="area" min="0" step="any" inputmode="decimal"></div>
+    <div><label class="t" for="floor">الطابق</label><input type="text" id="floor"></div>
+    <div><label class="t" for="owner">اسم المالك</label><input type="text" id="owner"></div>
+    <div><label class="t" for="phone">رقم هاتف المالك</label><input type="tel" id="phone" inputmode="tel" dir="ltr" style="text-align:right"></div>
+    <div><label class="t" for="price">السعر (أرقام فقط)</label><input type="number" id="price" min="0" step="any" inputmode="decimal"></div>
+    <div><label class="t" for="rec">رقم المحضر</label><input type="text" id="rec"></div>
+
+    <fieldset>
+      <legend>نوع البناء</legend>
+      <div class="opts">
+        <label><input type="radio" name="btype" value="طابقي">طابقي</label>
+        <label><input type="radio" name="btype" value="برجي">برجي</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="full">
+      <legend>الاتجاه</legend>
+      <div class="opts" id="dirs">
+        <label><input type="checkbox" value="شمال">شمال</label>
+        <label><input type="checkbox" value="جنوب">جنوب</label>
+        <label><input type="checkbox" value="شرق">شرق</label>
+        <label><input type="checkbox" value="غرب">غرب</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="full">
+      <legend>التقسيم</legend>
+      <div class="counters">
+        <div class="ctr" data-k="bed"><b>غرف نوم</b><span><button type="button" data-d="-1" aria-label="إنقاص">−</button> <span class="n">0</span> <button type="button" data-d="1" aria-label="زيادة">+</button></span></div>
+        <div class="ctr" data-k="bath"><b>حمام</b><span><button type="button" data-d="-1" aria-label="إنقاص">−</button> <span class="n">0</span> <button type="button" data-d="1" aria-label="زيادة">+</button></span></div>
+        <div class="ctr" data-k="kit"><b>مطبخ</b><span><button type="button" data-d="-1" aria-label="إنقاص">−</button> <span class="n">0</span> <button type="button" data-d="1" aria-label="زيادة">+</button></span></div>
+      </div>
+    </fieldset>
+
+    <div class="full"><label class="t" for="notes">ملاحظات</label><textarea id="notes" placeholder="اكتب أي ملاحظات هنا، بدون حد للطول"></textarea></div>
+  </div>
+  <div class="row" style="margin-top:14px">
+    <button class="btn" type="submit" id="save">حفظ العقار</button>
+    <button class="btn sec" type="button" id="cancel" hidden>إلغاء التعديل</button>
+    <a class="btn sec" href="view.html">عرض كل العقارات</a>
+  </div>
+</form>
+</div>
+<div class="toast" id="toast" role="status">تم الحفظ</div>
+<script src="js/common.js"></script>
+<script src="js/add.js"></script>
+</body>
+</html>

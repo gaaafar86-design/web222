@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إعدادات الحفظ على GitHub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+  <h1>إعدادات الحفظ</h1>
+  <nav><a href="index.html">إضافة</a><a href="view.html">عرض</a><a href="settings.html" class="on">إعدادات</a></nav>
+</div>
+
+<form id="f" class="card" autocomplete="off">
+  <h2>ربط الصفحة بملف data/data.json على GitHub</h2>
+  <p class="count">بعد الربط، كل عقار بتضيفه أو بتعدله أو بتحذفه بينكتب مباشرة بالملف على GitHub، وكل الناس بتشوفه.</p>
+  <div class="grid">
+    <div><label class="t" for="owner">اسم حساب GitHub</label><input type="text" id="owner" dir="ltr" style="text-align:right" required></div>
+    <div><label class="t" for="repo">اسم المستودع (repo)</label><input type="text" id="repo" dir="ltr" style="text-align:right" required></div>
+    <div><label class="t" for="branch">الفرع (branch)</label><input type="text" id="branch" dir="ltr" style="text-align:right" value="main"></div>
+    <div class="full"><label class="t" for="token">التوكن (Token)</label><input type="password" id="token" dir="ltr" style="text-align:right;width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);font:inherit" required></div>
+  </div>
+  <div class="row" style="margin-top:14px">
+    <button class="btn" type="submit">اختبار وحفظ</button>
+    <button class="btn sec" type="button" id="off">فصل الربط</button>
+  </div>
+  <p id="msg" role="status" style="font-weight:600"></p>
+</form>
+
+<section class="card">
+  <h2>كيف بتعمل التوكن (مرة وحدة)</h2>
+  <ol>
+    <li>على GitHub: صورتك ← <b>Settings</b> ← <b>Developer settings</b> ← <b>Personal access tokens</b> ← <b>Fine-grained tokens</b> ← <b>Generate new token</b>.</li>
+    <li>اختار <b>Only select repositories</b> وحدد المستودع تبعك فقط.</li>
+    <li>من <b>Repository permissions</b> خلي <b>Contents</b> على <b>Read and write</b>.</li>
+    <li>انسخ التوكن وحطو فوق. بينحفظ بهالمتصفح فقط، ولا بينرفع مع الملفات.</li>
+  </ol>
+  <p class="count">مهم: لا تكتب التوكن بأي ملف من المجلد ولا ترفعه على GitHub. إذا حطيت التوكن بمتصفح حدا تاني بيقدر يضيف ويعدل، وأي حدا ما عنده توكن بيقدر يشوف بس.</p>
+</section>
+</div>
+<script src="js/common.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>

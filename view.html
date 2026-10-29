@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عرض العقارات</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+  <h1>عرض العقارات</h1>
+  <nav><a href="index.html">إضافة</a><a href="view.html" class="on">عرض</a><a href="settings.html">إعدادات</a></nav>
+</div>
+<p class="stats" id="mode"></p>
+
+<section class="card">
+  <h2>الفلاتر</h2>
+  <div class="grid">
+    <div><label class="t" for="q">بحث</label><input type="text" id="q" placeholder="اسم، جمعية، هاتف، ملاحظة…"></div>
+    <div>
+      <label class="t">السعر</label>
+      <div class="range"><select id="pmin" aria-label="السعر من"></select><select id="pmax" aria-label="السعر إلى"></select></div>
+    </div>
+    <div>
+      <label class="t">المساحة (م²)</label>
+      <div class="range"><select id="amin" aria-label="المساحة من"></select><select id="amax" aria-label="المساحة إلى"></select></div>
+    </div>
+    <div><label class="t" for="bt">نوع البناء</label><select id="bt"></select></div>
+    <div><label class="t" for="assoc">الجمعية</label><select id="assoc"></select></div>
+    <fieldset class="full">
+      <legend>الجهات (الاتجاه)</legend>
+      <div class="opts" id="dirs"></div>
+    </fieldset>
+  </div>
+  <div class="row" style="margin-top:12px"><button class="btn sec" type="button" id="reset">مسح الفلاتر</button></div>
+</section>
+
+<section class="card">
+  <div class="row between" style="margin-bottom:10px">
+    <div class="row"><h2 style="margin:0">النتائج</h2><span class="count" id="cnt"></span></div>
+    <div class="row">
+      <button class="btn sec" type="button" id="csv">تصدير Excel / CSV</button>
+      <button class="btn sec" type="button" id="json">تنزيل data.json</button>
+    </div>
+  </div>
+  <p class="stats" id="stats"></p>
+  <div class="scroll">
+    <table>
+      <thead><tr>
+        <th>#</th><th>الجمعية</th><th>المساحة</th><th>الطابق</th><th>الاتجاه</th><th>التقسيم</th><th>نوع البناء</th>
+        <th>المالك</th><th>الهاتف</th><th>السعر</th><th>رقم المحضر</th><th>ملاحظات</th><th></th>
+      </tr></thead>
+      <tbody id="tb"></tbody>
+    </table>
+  </div>
+</section>
+</div>
+<script src="js/common.js"></script>
+<script src="js/view.js"></script>
+</body>
+</html>
